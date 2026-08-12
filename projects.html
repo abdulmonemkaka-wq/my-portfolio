@@ -4,36 +4,349 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المشاريع | عبدالمنعم محمد قاقا</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration:none; }
+        :root { 
+            --white: #ffffff; 
+            --blue: #007BFF; 
+            --navy-blue: #0A2540; 
+            --light-gray: #F4F7F6; 
+            --text: #2d3748; 
+            --text-muted: #718096;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
         body { background-color: var(--light-gray); color: var(--text); }
+        
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
         .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-weight: 600; color: var(--navy-blue); }
+        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--blue); }
         .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
         
         .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
-        .page-header h1 { font-size: 2.5rem; color: var(--blue); }
+        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; font-weight: 800; }
+        .page-header p { font-size: 1.1rem; opacity: 0.9; }
+
         .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; display: flex; flex-direction: column; cursor: pointer; }
-        .card:hover { transform: translateY(-7px); box-shadow: 0 12px 25px rgba(0,0,0,0.12); }
-        .card img { width: 100%; height: 240px; object-fit: cover; }
-        .card-body { padding: 20px; text-align: center; background: var(--white); }
-        .card h3 { color: var(--navy-blue); font-size: 1.25rem; font-weight: 700; }
         
-        .btn-link { display: inline-block; background: var(--blue); color: var(--white); padding: 12px 25px; border-radius: 8px; text-align: center; font-weight: 600; transition: background 0.3s; }
-        .btn-link:hover { background: var(--navy-blue); }
+        /* كروت المشاريع */
+        .card { 
+            background: var(--white); 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+            display: flex; 
+            flex-direction: column; 
+            cursor: pointer; 
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 16px 32px rgba(10, 37, 64, 0.12); 
+            border-color: rgba(0, 123, 255, 0.2);
+        }
+        .card-img-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        .card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card-body { padding: 22px; text-align: center; background: var(--white); }
+        .card h3 { color: var(--navy-blue); font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
         
-        .state-msg { text-align: center; font-size: 1.2rem; color: #666; margin-top: 50px; }
+        /* شاشة التحميل */
+        .state-msg { 
+            text-align: center; 
+            font-size: 1.25rem; 
+            color: var(--navy-blue); 
+            margin-top: 60px; 
+            grid-column: 1 / -1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+        .state-msg i { font-size: 1.5rem; color: var(--blue); }
 
-        /* نافذة التفاصيل المنبثقة (Modal) */
+        /* النافذة المنبثقة المحسّنة (Modal) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active { 
+            opacity: 1; 
+            visibility: visible; 
+        }
+        
+        .modal-card {
+            background: var(--white);
+            border-radius: 24px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            transform: scale(0.92) translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active .modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.2rem;
+            color: #4a5568;
+            background: #edf2f7;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .modal-close:hover { 
+            background: #e2e8f0; 
+            color: var(--navy-blue);
+            transform: rotate(90deg);
+        }
+
+        .modal-img-wrapper {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            background: #e2e8f0;
+        }
+        .modal-img {
+            width: 100%;
+            max-height: 340px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modal-body h2 { 
+            color: var(--navy-blue); 
+            margin-bottom: 14px; 
+            font-size: 1.75rem; 
+            font-weight: 800; 
+            line-height: 1.3;
+        }
+        .modal-body p { 
+            color: var(--text); 
+            font-size: 1.05rem; 
+            line-height: 1.8; 
+            margin-bottom: 28px; 
+            white-space: pre-wrap; 
+        }
+
+        .btn-link { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #007BFF, #0056b3); 
+            color: var(--white); 
+            padding: 12px 28px; 
+            border-radius: 12px; 
+            font-weight: 700; 
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(0, 123, 255, 0.35);
+            transition: all 0.3s ease; 
+        }
+        .btn-link:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+            background: linear-gradient(135deg, #0056b3, #0A2540); 
+        }
+
+        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; }
+            .nav-links.active { display: flex; }
+            .modal-card { padding: 22px; border-radius: 20px; }
+            .modal-img { max-height: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
+            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="skills.html">المهارات والأدوات</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="testimonials.html">آراء العملاء</a>
+                <a href="contact.html">التواصل</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>المشاريع</h1>
+        <p>أبرز الأعمال والحملات التسويقية التي قمت بتنفيذها</p>
+    </div>
+
+    <main class="container">
+        <!-- تم إعادة رسالة جاري التحميل بأسلوب عصري -->
+        <div id="content" class="grid">
+            <div class="state-msg"><i class="fas fa-spinner fa-spin"></i> جاري تحميل المحتوى...</div>
+        </div>
+    </main>
+
+    <!-- النافذة المنبثقة الشيك لعرض التفاصيل -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+            <div class="modal-img-wrapper">
+                <img id="modal-img" src="" alt="" class="modal-img">
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <a id="modal-link" href="#" class="btn-link" target="_blank" rel="noopener noreferrer" style="display: none;">
+                    <span>معاينة المشروع</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p></footer>
+
+    <script type="module">
+        import { db } from './firebase-config.js';
+        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        // عناصر النافذة المنبثقة
+        const modal = document.getElementById('project-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalLink = document.getElementById('modal-link');
+
+        function openModal(data) {
+            modalImg.src = data.image || '';
+            modalImg.alt = data.name || '';
+            modalTitle.textContent = data.name || '';
+            modalDesc.textContent = data.description || '';
+
+            if (data.url) {
+                modalLink.href = data.url;
+                modalLink.style.display = 'inline-flex';
+            } else {
+                modalLink.style.display = 'none';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        
+        // إغلاق عند الضغط خارج الكارت أو عند الضغط على زر Esc
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+
+        async function loadProjects() {
+            const container = document.getElementById('content');
+            try {
+                const q = query(collection(db, "projects"), orderBy("order", "asc"));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    container.innerHTML = '<div class="state-msg">لا توجد مشاريع مضافة حاليًا.</div>';
+                    container.classList.remove('grid');
+                    return;
+                }
+
+                container.innerHTML = ''; // استبدال حالة "جاري التحميل" بالبيانات فور وصولها
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div class="card-img-wrapper">
+                            <img src="${data.image}" alt="${data.name}">
+                        </div>
+                        <div class="card-body">
+                            <h3>${data.name}</h3>
+                        </div>
+                    `;
+
+                    card.addEventListener('click', () => openModal(data));
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                container.innerHTML = '<div class="state-msg">حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.</div>';
+                container.classList.remove('grid');
+            }
+        }
+
+        loadProjects();
+    </script>
+</body>
+</html>
         .modal-overlay {
             position: fixed;
             top: 0;
