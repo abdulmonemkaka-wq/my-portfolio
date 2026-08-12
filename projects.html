@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشاريع | عبدالمنعم محمد قاقا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* (Insert Shared Styles Here - Header, Footer, Reset) */
+        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration:none; }
+        body { background-color: var(--light-gray); color: var(--text); }
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 600; color: var(--navy-blue); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
+        
+        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
+        .page-header h1 { font-size: 2.5rem; color: var(--blue); }
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+        .card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card h3 { color: var(--navy-blue); margin-bottom: 10px; }
+        .card p { color: #666; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .btn-link { display: inline-block; background: var(--blue); color: var(--white); padding: 10px 20px; border-radius: 6px; text-align: center; font-weight: 600; transition: background 0.3s; }
+        .btn-link:hover { background: var(--navy-blue); }
+        
+        .state-msg { text-align: center; font-size: 1.2rem; color: #666; margin-top: 50px; }
+        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 50px; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
+            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="skills.html">المهارات والأدوات</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="testimonials.html">آراء العملاء</a>
+                <a href="contact.html">التواصل</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>المشاريع</h1>
+        <p>أبرز الأعمال والحملات التسويقية التي قمت بتنفيذها</p>
+    </div>
+
+    <main class="container">
+        <div id="content" class="grid">
+            <div class="state-msg">جاري تحميل المحتوى...</div>
+        </div>
+    </main>
+
+    <footer><p>جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p></footer>
+
+    <script type="module">
+        import { db } from './firebase-config.js';
+        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        async function loadProjects() {
+            const container = document.getElementById('content');
+            try {
+                const q = query(collection(db, "projects"), orderBy("order", "asc"));
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    container.innerHTML = '<div class="state-msg">لا توجد مشاريع مضافة حاليًا.</div>';
+                    container.classList.remove('grid');
+                    return;
+                }
+                let html = '';
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    html += `
+                        <div class="card">
+                            <img src="${data.image}" alt="${data.name}">
+                            <div class="card-body">
+                                <h3>${data.name}</h3>
+                                <p>${data.description}</p>
+                                ${data.url ? `<a href="${data.url}" class="btn-link" target="_blank" rel="noopener noreferrer">مشاهدة المشروع</a>` : ''}
+                            </div>
+                        </div>`;
+                });
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = '<div class="state-msg">حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.</div>';
+                container.classList.remove('grid');
+            }
+        }
+        loadProjects();
+    </script>
+</body>
+</html>

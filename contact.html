@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معي | عبدالمنعم محمد قاقا</title>
+    <meta name="description" content="تواصل مع عبدالمنعم محمد قاقا، أخصائي تسويق رقمي عبر واتساب أو البريد الإلكتروني أو لينكد إن.">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
+        body { background-color: var(--light-gray); color: var(--text); line-height: 1.6; }
+        
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: 0.3s; }
+        .nav-links a:hover { color: var(--blue); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
+        
+        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
+        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; }
+        
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
+        
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .contact-card { background: var(--white); padding: 35px 25px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.04); transition: transform 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
+        .contact-card:hover { transform: translateY(-5px); }
+        .contact-icon { width: 70px; height: 70px; border-radius: 50%; background: var(--light-gray); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 20px; transition: 0.3s; }
+        .contact-card:hover .contact-icon { background: var(--blue); color: var(--white); }
+        .contact-card h3 { color: var(--navy-blue); font-size: 1.3rem; margin-bottom: 10px; }
+        .contact-card p { color: #666; font-size: 0.95rem; margin-bottom: 20px; word-break: break-word; }
+        .btn-action { display: inline-block; width: 100%; padding: 12px; background: var(--blue); color: var(--white); border-radius: 6px; font-weight: bold; transition: 0.3s; }
+        .btn-action:hover { background: var(--navy-blue); }
+        
+        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 60px; position: relative; }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; }
+        .admin-link { position: absolute; left: 20px; bottom: 20px; font-size: 12px; color: rgba(255,255,255,0.2); }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
+            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="skills.html">المهارات والأدوات</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="testimonials.html">آراء العملاء</a>
+                <a href="contact.html">التواصل</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>تواصل معي</h1>
+        <p>يسعدني دائماً مناقشة الاستراتيجيات التسويقية والفرص الجديدة</p>
+    </div>
+
+    <main class="container">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>واتساب</h3>
+                <p>تواصل مباشر للتفاصيل السريعة والمشاريع</p>
+                <a href="https://wa.me/201157865809" target="_blank" rel="noopener" class="btn-action">تواصل عبر WhatsApp</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                <h3>لينكد إن</h3>
+                <p>تابع شبكتي المهنية والتحديثات اليومية</p>
+                <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="btn-action">الملف الشخصي على LinkedIn</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>البريد الإلكتروني</h3>
+                <p>Abdulmonemkaka@gmail.com</p>
+                <a href="mailto:Abdulmonemkaka@gmail.com" class="btn-action">إرسال رسالة بريد</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/201157865809" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:Abdulmonemkaka@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top:15px;">جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p>
+        <a href="login.html" class="admin-link">Dashboard</a>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

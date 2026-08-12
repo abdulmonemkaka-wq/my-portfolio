@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // التحقق من تسجيل الدخول
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    match /services/{document=**} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+    match /skills/{document=**} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+    match /projects/{document=**} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+    match /testimonials/{document=**} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهارات والأدوات | عبدالمنعم محمد قاقا</title>
+    <meta name="description" content="المهارات والأدوات التسويقية والتحليلية التي يعتمد عليها عبدالمنعم قاقا.">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
+        body { background-color: var(--light-gray); color: var(--text); line-height: 1.6; }
+        
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: 0.3s; }
+        .nav-links a:hover { color: var(--blue); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
+        
+        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
+        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; }
+        
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
+        .section-title { font-size: 1.8rem; color: var(--navy-blue); margin: 40px 0 20px; border-right: 5px solid var(--blue); padding-right: 15px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--white); padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 20px; transition: transform 0.3s; }
+        .skill-card:hover { transform: translateY(-5px); }
+        .skill-icon { width: 60px; height: 60px; border-radius: 10px; background: rgba(0, 123, 255, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .skill-icon img { width: 35px; height: 35px; object-fit: contain; }
+        .skill-icon i { font-size: 1.8rem; color: var(--blue); }
+        .skill-info h3 { font-size: 1.1rem; color: var(--navy-blue); margin-bottom: 5px; }
+        .skill-info p { font-size: 0.85rem; color: #666; }
+        
+        .state-msg { text-align: center; font-size: 1.2rem; color: #666; margin: 40px 0; grid-column: 1 / -1; }
+        
+        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 60px; position: relative; }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; }
+        .admin-link { position: absolute; left: 20px; bottom: 20px; font-size: 12px; color: rgba(255,255,255,0.2); }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
+            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="skills.html">المهارات والأدوات</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="testimonials.html">آراء العملاء</a>
+                <a href="contact.html">التواصل</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>المهارات والأدوات</h1>
+        <p>القدرات التقنية والأدوات الاحترافية التي أستعين بها لضمان أفضل النتائج</p>
+    </div>
+
+    <main class="container">
+        <h2 class="section-title">المهارات التسويقية والاستراتيجية</h2>
+        <div id="skillsContainer" class="grid">
+            <div class="state-msg">جاري تحميل المحتوى...</div>
+        </div>
+
+        <h2 class="section-title">الأدوات والمنصات</h2>
+        <div id="toolsContainer" class="grid">
+            <div class="state-msg">جاري تحميل المحتوى...</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/201157865809" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:Abdulmonemkaka@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top:15px;">جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p>
+        <a href="login.html" class="admin-link">Dashboard</a>
+    </footer>
+
+    <script type="module">
+        import { db } from './firebase-config.js';
+        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        async function loadSkillsAndTools() {
+            const skillsBox = document.getElementById('skillsContainer');
+            const toolsBox = document.getElementById('toolsContainer');
+
+            try {
+                const q = query(collection(db, "skills"), orderBy("order", "asc"));
+                const querySnapshot = await getDocs(q);
+
+                if (querySnapshot.empty) {
+                    const emptyMsg = '<div class="state-msg">لا توجد مهارات أو أدوات مضافة حاليًا.</div>';
+                    skillsBox.innerHTML = emptyMsg;
+                    toolsBox.innerHTML = emptyMsg;
+                    return;
+                }
+
+                let skillsHTML = '';
+                let toolsHTML = '';
+                let hasSkills = false;
+                let hasTools = false;
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const isUrl = data.icon && (data.icon.startsWith('http://') || data.icon.startsWith('https://'));
+                    
+                    const iconMarkup = isUrl 
+                        ? `<img src="${data.icon}" alt="${data.name}">` 
+                        : `<i class="${data.icon || 'fas fa-check-circle'}"></i>`;
+
+                    const itemCard = `
+                        <div class="skill-card">
+                            <div class="skill-icon">${iconMarkup}</div>
+                            <div class="skill-info">
+                                <h3>${data.name}</h3>
+                                ${data.description ? `<p>${data.description}</p>` : ''}
+                            </div>
+                        </div>`;
+
+                    if (data.type === 'Skill' || data.type === 'مهارة') {
+                        skillsHTML += itemCard;
+                        hasSkills = true;
+                    } else {
+                        toolsHTML += itemCard;
+                        hasTools = true;
+                    }
+                });
+
+                skillsBox.innerHTML = hasSkills ? skillsHTML : '<div class="state-msg">لا توجد مهارات مضافة حاليًا.</div>';
+                toolsBox.innerHTML = hasTools ? toolsHTML : '<div class="state-msg">لا توجد أدوات مضافة حاليًا.</div>';
+
+            } catch (error) {
+                const errorMsg = '<div class="state-msg">حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.</div>';
+                skillsBox.innerHTML = errorMsg;
+                toolsBox.innerHTML = errorMsg;
+            }
+        }
+
+        loadSkillsAndTools();
+    </script>
+</body>
+</html>

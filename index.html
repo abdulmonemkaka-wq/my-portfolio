@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عبدالمنعم محمد قاقا | أخصائي تسويق رقمي</title>
+    <meta name="description" content="أخصائي تسويق رقمي يمتلك منهجية عمل متكاملة تركز على تحويل الأفكار التسويقية إلى استراتيجيات منظمة.">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --white: #ffffff;
+            --blue: #007BFF;
+            --navy-blue: #0A2540;
+            --light-gray: #F4F7F6;
+            --text-dark: #333333;
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--white); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        /* Header & Nav */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: var(--transition); }
+        .nav-links a:hover { color: var(--blue); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--navy-blue); }
+        
+        /* Hero Section */
+        .hero { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 70vh; }
+        .hero-content { flex: 1; }
+        .hero-title { font-size: 3rem; color: var(--navy-blue); margin-bottom: 10px; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.5rem; color: var(--blue); font-weight: 600; margin-bottom: 20px; }
+        .hero-bio { font-size: 1.1rem; color: #555; margin-bottom: 30px; line-height: 1.8; }
+        .hero-image { flex: 1; text-align: left; }
+        .hero-image img { max-width: 100%; width: 450px; border-radius: 20px; box-shadow: 0 20px 40px rgba(10, 37, 64, 0.1); }
+        
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 12px 25px; border-radius: 8px; font-weight: 700; transition: var(--transition); cursor: pointer; border: none; font-size: 1rem; }
+        .btn-primary { background: var(--blue); color: var(--white); }
+        .btn-primary:hover { background: var(--navy-blue); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2); }
+        .btn-outline { background: transparent; border: 2px solid var(--navy-blue); color: var(--navy-blue); }
+        .btn-outline:hover { background: var(--navy-blue); color: var(--white); transform: translateY(-3px); }
+        
+        /* Footer */
+        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 50px; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; transition: var(--transition); }
+        .social-links a:hover { color: var(--blue); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; font-size: 0.9rem; position: relative; }
+        .admin-link { position: absolute; left: 0; bottom: 0; font-size: 12px; color: rgba(255,255,255,0.2); text-decoration: none; }
+        .admin-link:hover { color: var(--white); }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; margin: 30px auto; }
+            .hero-image { text-align: center; }
+            .hero-title { font-size: 2.2rem; }
+            .btn-group { justify-content: center; }
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); box-shadow: 0 5px 10px rgba(0,0,0,0.1); padding: 20px; text-align: center; }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
+            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="skills.html">المهارات والأدوات</a>
+                <a href="projects.html">المشاريع</a>
+                <a href="testimonials.html">آراء العملاء</a>
+                <a href="contact.html">التواصل</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">عبدالمنعم محمد قاقا</h1>
+            <h2 class="hero-subtitle">أخصائي تسويق رقمي</h2>
+            <p class="hero-bio">
+                أخصائي تسويق رقمي يمتلك منهجية عمل متكاملة تركز على تحويل الأفكار التسويقية إلى استراتيجيات منظمة، محتوى فعال، ونتائج ملموسة قابلة للقياس. يعتمد في عمله على الدورة التسويقية الكاملة بدءاً من دراسة السوق والمنافسين وتحليل سلوك المستهلك، وصولاً إلى وضع الاستراتيجية، تنفيذ الحملات الإعلانية وصناعة المحتوى، ثم تحليل الأداء والتحسين المستمر.
+            </p>
+            <div class="btn-group">
+                <a href="services.html" class="btn btn-primary">استكشف خدماتي</a>
+                <a href="projects.html" class="btn btn-outline">شاهد مشاريعي</a>
+                <a href="contact.html" class="btn btn-outline">تواصل معي</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.postimg.cc/DzgvXgFq/file-000000000864720a90b491b1086f93c2(1).png" alt="عبدالمنعم محمد قاقا">
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/201157865809" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:Abdulmonemkaka@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا | أخصائي تسويق رقمي</p>
+            <a href="login.html" class="admin-link">Dashboard</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
