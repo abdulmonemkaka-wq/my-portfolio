@@ -1,111 +1,1247 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>تواصل معي | عبدالمنعم محمد قاقا</title>
-    <meta name="description" content="تواصل مع عبدالمنعم محمد قاقا، أخصائي تسويق رقمي عبر واتساب أو البريد الإلكتروني أو لينكد إن.">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta name="description"
+        content="تواصل مع عبدالمنعم محمد قاقا، أخصائي تسويق رقمي عبر واتساب أو البريد الإلكتروني أو لينكد إن.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
     <style>
-        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
-        body { background-color: var(--light-gray); color: var(--text); line-height: 1.6; }
-        
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: 0.3s; }
-        .nav-links a:hover { color: var(--blue); }
-        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
-        
-        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
-        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; }
-        
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
-        
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
-        .contact-card { background: var(--white); padding: 35px 25px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.04); transition: transform 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
-        .contact-card:hover { transform: translateY(-5px); }
-        .contact-icon { width: 70px; height: 70px; border-radius: 50%; background: var(--light-gray); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 20px; transition: 0.3s; }
-        .contact-card:hover .contact-icon { background: var(--blue); color: var(--white); }
-        .contact-card h3 { color: var(--navy-blue); font-size: 1.3rem; margin-bottom: 10px; }
-        .contact-card p { color: #666; font-size: 0.95rem; margin-bottom: 20px; word-break: break-word; }
-        .btn-action { display: inline-block; width: 100%; padding: 12px; background: var(--blue); color: var(--white); border-radius: 6px; font-weight: bold; transition: 0.3s; }
-        .btn-action:hover { background: var(--navy-blue); }
-        
-        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 60px; position: relative; }
-        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; }
-        .admin-link { position: absolute; left: 20px; bottom: 20px; font-size: 12px; color: rgba(255,255,255,0.2); }
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --white: #ffffff;
+            --blue: #007BFF;
+            --navy-blue: #0A2540;
+            --light-gray: #F4F7F6;
+            --text-dark: #333333;
+            --text-muted: #64748B;
+
+            --border: rgba(10, 37, 64, 0.08);
+
+            --shadow-sm:
+                0 8px 25px rgba(10, 37, 64, 0.06);
+
+            --shadow-md:
+                0 20px 50px rgba(10, 37, 64, 0.11);
+
+            --radius: 20px;
+
+            --transition:
+                0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(0, 123, 255, 0.045),
+                    transparent 30%
+                ),
+                var(--light-gray);
+
+            color: var(--text-dark);
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid rgba(10, 37, 64, 0.06);
+        }
+
+
+        .nav-container {
+            max-width: 1250px;
+            min-height: 76px;
+
+            margin: auto;
+            padding: 0 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            position: relative;
+
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+            white-space: nowrap;
+        }
+
+
+        .logo::after {
+            content: "";
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            margin-right: 6px;
+
+            background: var(--blue);
+
+            border-radius: 50%;
+
+            vertical-align: middle;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            position: relative;
+
+            padding: 10px 13px;
+
+            color: #536274;
+
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            right: 13px;
+            left: 13px;
+            bottom: 5px;
+
+            height: 2px;
+
+            background: var(--blue);
+
+            transform: scaleX(0);
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a:hover {
+            color: var(--navy-blue);
+
+            background:
+                rgba(0, 123, 255, 0.045);
+        }
+
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* الصفحة الحالية */
+
+        .nav-links a[href="contact.html"] {
+            color: var(--blue);
+
+            background:
+                rgba(0, 123, 255, 0.06);
+        }
+
+
+        .nav-links a[href="contact.html"]::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .menu-toggle {
+            display: none;
+
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+
+            cursor: pointer;
+
+            padding: 9px;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .menu-toggle:hover {
+            background: var(--light-gray);
+
+            color: var(--blue);
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 75px 20px 80px;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--navy-blue),
+                    #0d3153
+                );
+        }
+
+
+        .page-header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 380px;
+            height: 380px;
+
+            top: -230px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.13);
+        }
+
+
+        .page-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            bottom: -180px;
+            left: -80px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+
+            color: var(--white);
+
+            font-size:
+                clamp(2.1rem, 5vw, 3.2rem);
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-header h1::after {
+            content: "";
+
+            display: block;
+
+            width: 45px;
+            height: 3px;
+
+            margin: 12px auto 15px;
+
+            background: var(--blue);
+
+            border-radius: 20px;
+        }
+
+
+        .page-header p {
+            position: relative;
+            z-index: 1;
+
+            color:
+                rgba(255, 255, 255, 0.72);
+
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
+        .container {
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            padding:
+                70px 28px 90px;
+
+            min-height: 50vh;
+        }
+
+
+        /* =====================================================
+           CONTACT GRID
+        ===================================================== */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           CONTACT CARD
+        ===================================================== */
+
+        .contact-card {
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            min-height: 340px;
+
+            padding:
+                34px 25px 25px;
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+
+            overflow: hidden;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+        }
+
+
+        .contact-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+            left: 0;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    transparent
+                );
+
+            opacity: 0;
+
+            transition: var(--transition);
+        }
+
+
+        .contact-card:hover {
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(0, 123, 255, 0.15);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+
+        /* =====================================================
+           CONTACT ICON
+        ===================================================== */
+
+        .contact-icon {
+            position: relative;
+
+            width: 78px;
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+            border-radius: 20px;
+
+            color: var(--blue);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 123, 255, 0.10),
+                    rgba(0, 123, 255, 0.035)
+                );
+
+            border:
+                1px solid rgba(0, 123, 255, 0.08);
+
+            font-size: 2rem;
+
+            transition: var(--transition);
+        }
+
+
+        .contact-card:hover .contact-icon {
+            color: var(--white);
+
+            background: var(--blue);
+
+            transform:
+                translateY(-3px)
+                scale(1.04);
+
+            box-shadow:
+                0 12px 25px rgba(0, 123, 255, 0.20);
+        }
+
+
+        /* =====================================================
+           CONTACT CONTENT
+        ===================================================== */
+
+        .contact-card h3 {
+            color: var(--navy-blue);
+
+            font-size: 1.25rem;
+
+            font-weight: 800;
+
+            margin-bottom: 10px;
+        }
+
+
+        .contact-card p {
+            flex: 1;
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 24px;
+
+            word-break: break-word;
+        }
+
+
+        /* =====================================================
+           ACTION BUTTON
+        ===================================================== */
+
+        .btn-action {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 18px;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    #006fe6
+                );
+
+            border-radius: 11px;
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 18px rgba(0, 123, 255, 0.12);
+
+            transition: var(--transition);
+        }
+
+
+        .btn-action::after {
+            content: "←";
+
+            font-size: 1rem;
+
+            transition: var(--transition);
+        }
+
+
+        .btn-action:hover {
+            background:
+                var(--navy-blue);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(10, 37, 64, 0.18);
+        }
+
+
+        .btn-action:hover::after {
+            transform:
+                translateX(-4px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--navy-blue);
+
+            color: var(--white);
+
+            padding:
+                45px 20px 25px;
+
+            text-align: center;
+        }
+
+
+        footer::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            top: -190px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.12);
+        }
+
+
+        .social-links {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .social-links a {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--white);
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 12px;
+
+            font-size: 1.15rem;
+
+            transition: var(--transition);
+        }
+
+
+        .social-links a:hover {
+            color: var(--white);
+
+            background: var(--blue);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 123, 255, 0.25);
+        }
+
+
+        footer > p {
+            position: relative;
+            z-index: 1;
+
+            margin-top: 0 !important;
+
+            color:
+                rgba(255, 255, 255, 0.62);
+
+            font-size: 0.84rem;
+        }
+
+
+        .admin-link {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            color:
+                rgba(255, 255, 255, 0.18);
+
+            font-size: 11px;
+
+            transition: var(--transition);
+        }
+
+
+        .admin-link:hover {
+            color: var(--white);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-container {
+                padding: 0 22px;
+            }
+
+
+            .nav-links {
+                gap: 2px;
+            }
+
+
+            .nav-links a {
+                padding: 9px;
+
+                font-size: 0.82rem;
+            }
+
+
+            .contact-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
 
         @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-            .nav-links.active { display: flex; }
+
+            .nav-container {
+                min-height: 68px;
+
+                padding: 0 18px;
+            }
+
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .nav-links {
+                position: absolute;
+
+                top:
+                    calc(100% + 1px);
+
+                right: 12px;
+                left: 12px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 3px;
+
+                padding: 10px;
+
+                background:
+                    rgba(255, 255, 255, 0.97);
+
+                backdrop-filter:
+                    blur(15px);
+
+                border:
+                    1px solid rgba(10, 37, 64, 0.07);
+
+                border-radius: 16px;
+
+                box-shadow:
+                    0 20px 50px
+                    rgba(10, 37, 64, 0.12);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+
+            .nav-links a {
+                padding:
+                    12px 15px;
+
+                text-align: right;
+            }
+
+
+            .nav-links a::after {
+                display: none;
+            }
+
+
+            .page-header {
+                padding:
+                    55px 20px 60px;
+            }
+
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+
+            .container {
+                padding:
+                    45px 18px 65px;
+            }
+
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+            }
+
+
+            .contact-card {
+                min-height: 320px;
+
+                padding:
+                    30px 22px 22px;
+            }
         }
+
+
+        @media (max-width: 420px) {
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+
+            .page-header p {
+                font-size: 0.87rem;
+            }
+
+
+            .contact-icon {
+                width: 70px;
+                height: 70px;
+
+                font-size: 1.8rem;
+            }
+
+
+            .contact-card h3 {
+                font-size: 1.15rem;
+            }
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY
+        ===================================================== */
+
+        .nav-links a:focus-visible,
+        .btn-action:focus-visible,
+        .social-links a:focus-visible,
+        .menu-toggle:focus-visible {
+            outline:
+                3px solid rgba(0, 123, 255, 0.35);
+
+            outline-offset: 3px;
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                transition: none !important;
+
+                scroll-behavior: auto !important;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
     <header>
+
         <div class="nav-container">
-            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
-            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+
+            <a href="index.html" class="logo">
+                عبدالمنعم قاقا
+            </a>
+
+
+            <i
+                class="fas fa-bars menu-toggle"
+                id="mobile-menu"
+                aria-label="فتح القائمة">
+            </i>
+
+
             <nav class="nav-links" id="nav-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">الخدمات</a>
-                <a href="skills.html">المهارات والأدوات</a>
-                <a href="projects.html">المشاريع</a>
-                <a href="testimonials.html">آراء العملاء</a>
-                <a href="contact.html">التواصل</a>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="services.html">
+                    الخدمات
+                </a>
+
+                <a href="skills.html">
+                    المهارات والأدوات
+                </a>
+
+                <a href="projects.html">
+                    المشاريع
+                </a>
+
+                <a href="testimonials.html">
+                    آراء العملاء
+                </a>
+
+                <a href="contact.html">
+                    التواصل
+                </a>
+
             </nav>
+
         </div>
+
     </header>
 
-    <div class="page-header">
-        <h1>تواصل معي</h1>
-        <p>يسعدني دائماً مناقشة الاستراتيجيات التسويقية والفرص الجديدة</p>
-    </div>
+
+    <!-- =====================================================
+         PAGE HEADER
+    ===================================================== -->
+
+    <section class="page-header">
+
+        <h1>
+            تواصل معي
+        </h1>
+
+        <p>
+            يسعدني دائماً مناقشة الاستراتيجيات التسويقية والفرص الجديدة
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ===================================================== -->
 
     <main class="container">
+
         <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                <h3>واتساب</h3>
-                <p>تواصل مباشر للتفاصيل السريعة والمشاريع</p>
-                <a href="https://wa.me/201157865809" target="_blank" rel="noopener" class="btn-action">تواصل عبر WhatsApp</a>
-            </div>
 
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-                <h3>لينكد إن</h3>
-                <p>تابع شبكتي المهنية والتحديثات اليومية</p>
-                <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener" class="btn-action">الملف الشخصي على LinkedIn</a>
-            </div>
 
-            <div class="contact-card">
-                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                <h3>البريد الإلكتروني</h3>
-                <p>Abdulmonemkaka@gmail.com</p>
-                <a href="mailto:Abdulmonemkaka@gmail.com" class="btn-action">إرسال رسالة بريد</a>
-            </div>
+            <!-- WhatsApp -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fab fa-whatsapp"></i>
+
+                </div>
+
+
+                <h3>
+                    واتساب
+                </h3>
+
+
+                <p>
+                    تواصل مباشر للتفاصيل السريعة والمشاريع
+                </p>
+
+
+                <a
+                    href="https://wa.me/201157865809"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-action">
+
+                    تواصل عبر WhatsApp
+
+                </a>
+
+            </article>
+
+
+            <!-- LinkedIn -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fab fa-linkedin-in"></i>
+
+                </div>
+
+
+                <h3>
+                    لينكد إن
+                </h3>
+
+
+                <p>
+                    تابع شبكتي المهنية والتحديثات اليومية
+                </p>
+
+
+                <a
+                    href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-action">
+
+                    الملف الشخصي على LinkedIn
+
+                </a>
+
+            </article>
+
+
+            <!-- Email -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+
+                    <i class="fas fa-envelope"></i>
+
+                </div>
+
+
+                <h3>
+                    البريد الإلكتروني
+                </h3>
+
+
+                <p>
+                    Abdulmonemkaka@gmail.com
+                </p>
+
+
+                <a
+                    href="mailto:Abdulmonemkaka@gmail.com"
+                    class="btn-action">
+
+                    إرسال رسالة بريد
+
+                </a>
+
+            </article>
+
+
         </div>
+
     </main>
 
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
     <footer>
+
         <div class="social-links">
-            <a href="https://wa.me/201157865809" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:Abdulmonemkaka@gmail.com"><i class="fas fa-envelope"></i></a>
+
+            <a
+                href="https://wa.me/201157865809"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp">
+
+                <i class="fab fa-whatsapp"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn">
+
+                <i class="fab fa-linkedin"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:Abdulmonemkaka@gmail.com"
+                aria-label="Email">
+
+                <i class="fas fa-envelope"></i>
+
+            </a>
+
         </div>
-        <p style="margin-top:15px;">جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p>
-        <a href="login.html" class="admin-link">Dashboard</a>
+
+
+        <p>
+            جميع الحقوق محفوظة &copy; 2026
+            عبدالمنعم محمد قاقا
+        </p>
+
+
+        <a
+            href="login.html"
+            class="admin-link">
+
+            Dashboard
+
+        </a>
+
     </footer>
 
+
+    <!-- =====================================================
+         MOBILE MENU
+    ===================================================== -->
+
     <script>
-        document.getElementById('mobile-menu').addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('active');
+
+        const mobileMenu =
+            document.getElementById("mobile-menu");
+
+        const navLinks =
+            document.getElementById("nav-links");
+
+
+        mobileMenu.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+
+            if (
+                navLinks.classList.contains("active")
+            ) {
+
+                mobileMenu.classList.remove("fa-bars");
+
+                mobileMenu.classList.add("fa-xmark");
+
+            } else {
+
+                mobileMenu.classList.remove("fa-xmark");
+
+                mobileMenu.classList.add("fa-bars");
+
+            }
+
         });
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                    mobileMenu.classList.remove("fa-xmark");
+
+                    mobileMenu.classList.add("fa-bars");
+
+                });
+
+            });
+
     </script>
+
+
 </body>
+
 </html>
