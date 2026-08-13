@@ -1,134 +1,1604 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>آراء العملاء | عبدالمنعم محمد قاقا</title>
-    <meta name="description" content="تقييمات وآراء العملاء والشركاء في الخدمات التسويقية المقدمة من عبدالمنعم قاقا.">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta
+        name="description"
+        content="تقييمات وآراء العملاء والشركاء في الخدمات التسويقية المقدمة من عبدالمنعم قاقا."
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+
     <style>
-        :root { --white: #ffffff; --blue: #007BFF; --navy-blue: #0A2540; --light-gray: #F4F7F6; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
-        body { background-color: var(--light-gray); color: var(--text); line-height: 1.6; }
-        
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: 0.3s; }
-        .nav-links a:hover { color: var(--blue); }
-        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
-        
-        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
-        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; }
-        
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        
-        .testimonial-card { background: var(--white); border-radius: 12px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
-        .testimonial-card:hover { transform: translateY(-5px); }
-        .quote-icon { font-size: 2.5rem; color: rgba(0, 123, 255, 0.15); position: absolute; top: 20px; left: 20px; }
-        .review-text { font-size: 1rem; color: #555; margin-bottom: 25px; position: relative; z-index: 1; font-style: italic; }
-        .client-info { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--light-gray); padding-top: 15px; }
-        .client-img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue); }
-        .client-details h4 { color: var(--navy-blue); font-size: 1.1rem; }
-        .client-details p { font-size: 0.85rem; color: #888; }
-        
-        .state-msg { text-align: center; font-size: 1.2rem; color: #666; margin-top: 50px; grid-column: 1 / -1; }
-        
-        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 60px; position: relative; }
-        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 10px; }
-        .admin-link { position: absolute; left: 20px; bottom: 20px; font-size: 12px; color: rgba(255,255,255,0.2); }
 
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-            .nav-links.active { display: flex; }
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --white: #ffffff;
+            --blue: #007BFF;
+            --navy-blue: #0A2540;
+            --light-gray: #F4F7F6;
+
+            --text-dark: #333333;
+            --text-muted: #64748B;
+
+            --border: rgba(10, 37, 64, 0.08);
+
+            --shadow-sm:
+                0 8px 25px rgba(10, 37, 64, 0.06);
+
+            --shadow-md:
+                0 20px 50px rgba(10, 37, 64, 0.10);
+
+            --transition:
+                0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --radius: 20px;
         }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
-            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">الخدمات</a>
-                <a href="skills.html">المهارات والأدوات</a>
-                <a href="projects.html">المشاريع</a>
-                <a href="testimonials.html">آراء العملاء</a>
-                <a href="contact.html">التواصل</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="page-header">
-        <h1>آراء العملاء</h1>
-        <p>شهادات شُركاء النجاح والانطباعات حول الحملات والاستراتيجيات المنفذة</p>
-    </div>
 
-    <main class="container">
-        <div id="testimonialsContainer" class="grid">
-            <div class="state-msg">جاري تحميل المحتوى...</div>
-        </div>
-    </main>
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-    <footer>
-        <div class="social-links">
-            <a href="https://wa.me/201157865809" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:Abdulmonemkaka@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p style="margin-top:15px;">جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p>
-        <a href="login.html" class="admin-link">Dashboard</a>
-    </footer>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
 
-    <script type="module">
-        import { db } from './firebase-config.js';
-        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        document.getElementById('mobile-menu').addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('active');
-        });
+        html {
+            scroll-behavior: smooth;
+        }
 
-        async function loadTestimonials() {
-            const container = document.getElementById('testimonialsContainer');
-            try {
-                const q = query(collection(db, "testimonials"), orderBy("order", "asc"));
-                const querySnapshot = await getDocs(q);
 
-                if (querySnapshot.empty) {
-                    container.innerHTML = '<div class="state-msg">لا توجد آراء عملاء مضافة حاليًا.</div>';
-                    return;
-                }
+        body {
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(0, 123, 255, 0.045),
+                    transparent 30%
+                ),
+                var(--light-gray);
 
-                let html = '';
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const defaultAvatar = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(data.clientName) + '&background=007BFF&color=fff';
-                    
-                    html += `
-                        <div class="testimonial-card">
-                            <i class="fas fa-quote-right quote-icon"></i>
-                            <p class="review-text">"${data.review}"</p>
-                            <div class="client-info">
-                                <img class="client-img" src="${data.clientImage || defaultAvatar}" alt="${data.clientName}">
-                                <div class="client-details">
-                                    <h4>${data.clientName}</h4>
-                                    ${data.notes ? `<p>${data.notes}</p>` : ''}
-                                </div>
-                            </div>
-                        </div>`;
-                });
-                container.innerHTML = html;
-            } catch (error) {
-                container.innerHTML = '<div class="state-msg">حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.</div>';
+            color: var(--text-dark);
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid rgba(10, 37, 64, 0.06);
+        }
+
+
+        .nav-container {
+            max-width: 1250px;
+            min-height: 76px;
+
+            margin: auto;
+            padding: 0 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            position: relative;
+
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        .logo::after {
+            content: "";
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            margin-right: 6px;
+
+            background: var(--blue);
+
+            border-radius: 50%;
+
+            vertical-align: middle;
+        }
+
+
+        /* =====================================================
+           NAV
+        ===================================================== */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            position: relative;
+
+            padding: 10px 13px;
+
+            color: #536274;
+
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            right: 13px;
+            left: 13px;
+            bottom: 5px;
+
+            height: 2px;
+
+            background: var(--blue);
+
+            transform: scaleX(0);
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a:hover {
+            color: var(--navy-blue);
+
+            background:
+                rgba(0, 123, 255, 0.045);
+        }
+
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* الصفحة الحالية */
+
+        .nav-links a[href="testimonials.html"] {
+            color: var(--blue);
+
+            background:
+                rgba(0, 123, 255, 0.06);
+        }
+
+
+        .nav-links a[href="testimonials.html"]::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .menu-toggle {
+            display: none;
+
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+
+            cursor: pointer;
+
+            padding: 9px;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .menu-toggle:hover {
+            color: var(--blue);
+
+            background: var(--light-gray);
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                75px 20px 80px;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--navy-blue),
+                    #0d3153
+                );
+        }
+
+
+        .page-header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            top: -220px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.13);
+        }
+
+
+        .page-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            bottom: -180px;
+            left: -80px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+
+            color: var(--white);
+
+            font-size:
+                clamp(2.1rem, 5vw, 3.2rem);
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-header h1::after {
+            content: "";
+
+            display: block;
+
+            width: 45px;
+            height: 3px;
+
+            margin: 12px auto 15px;
+
+            background: var(--blue);
+
+            border-radius: 20px;
+        }
+
+
+        .page-header p {
+            position: relative;
+            z-index: 1;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color:
+                rgba(255, 255, 255, 0.72);
+
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding:
+                60px 28px 90px;
+
+            min-height: 50vh;
+        }
+
+
+        /* =====================================================
+           TESTIMONIAL GRID
+        ===================================================== */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        /* =====================================================
+           TESTIMONIAL CARD
+        ===================================================== */
+
+        .testimonial-card {
+            position: relative;
+
+            min-height: 270px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            padding: 28px;
+
+            overflow: hidden;
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+        }
+
+
+        .testimonial-card::before {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            width: 3px;
+
+            background: var(--blue);
+
+            transform: scaleY(0);
+
+            transform-origin: center;
+
+            transition:
+                transform var(--transition);
+        }
+
+
+        .testimonial-card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(0, 123, 255, 0.16);
+
+            box-shadow:
+                var(--shadow-md);
+        }
+
+
+        .testimonial-card:hover::before {
+            transform: scaleY(1);
+        }
+
+
+        /* =====================================================
+           QUOTE ICON
+        ===================================================== */
+
+        .quote-icon {
+            position: absolute;
+
+            top: 20px;
+            left: 23px;
+
+            color:
+                rgba(0, 123, 255, 0.10);
+
+            font-size: 3.3rem;
+
+            transition: var(--transition);
+        }
+
+
+        .testimonial-card:hover .quote-icon {
+            color:
+                rgba(0, 123, 255, 0.16);
+
+            transform:
+                scale(1.05);
+        }
+
+
+        /* =====================================================
+           REVIEW
+        ===================================================== */
+
+        .review-text {
+            position: relative;
+            z-index: 2;
+
+            color: #526170;
+
+            font-size: 0.98rem;
+
+            line-height: 2;
+
+            margin-bottom: 25px;
+
+            padding-left: 10px;
+        }
+
+
+        .review-text::before {
+            content: "“";
+
+            color: var(--blue);
+
+            font-size: 2rem;
+
+            font-weight: 800;
+
+            line-height: 0;
+
+            vertical-align: -8px;
+
+            margin-left: 5px;
+        }
+
+
+        /* =====================================================
+           CLIENT INFO
+        ===================================================== */
+
+        .client-info {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding-top: 17px;
+
+            border-top:
+                1px solid rgba(10, 37, 64, 0.07);
+        }
+
+
+        .client-img {
+            width: 56px;
+            height: 56px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border:
+                3px solid rgba(0, 123, 255, 0.12);
+
+            background:
+                rgba(0, 123, 255, 0.05);
+        }
+
+
+        .client-details {
+            min-width: 0;
+        }
+
+
+        .client-details h4 {
+            color: var(--navy-blue);
+
+            font-size: 1.02rem;
+
+            font-weight: 800;
+
+            margin-bottom: 2px;
+        }
+
+
+        .client-details p {
+            color: #8995A3;
+
+            font-size: 0.8rem;
+        }
+
+
+        /* =====================================================
+           EMPTY / ERROR STATE
+        ===================================================== */
+
+        .state-msg {
+            grid-column: 1 / -1;
+
+            min-height: 190px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--text-muted);
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        .state-msg i {
+            color: var(--blue);
+
+            font-size: 1.8rem;
+
+            margin-bottom: 5px;
+        }
+
+
+        .state-msg strong {
+            color: var(--navy-blue);
+
+            font-size: 1rem;
+        }
+
+
+        .state-msg span {
+            font-size: 0.82rem;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--navy-blue);
+
+            color: var(--white);
+
+            padding:
+                45px 20px 25px;
+
+            text-align: center;
+        }
+
+
+        footer::before {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            top: -180px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.12);
+        }
+
+
+        .social-links {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--white);
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 12px;
+
+            font-size: 1.15rem;
+
+            transition: var(--transition);
+        }
+
+
+        .social-links a:hover {
+            color: var(--white);
+
+            background: var(--blue);
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 123, 255, 0.25);
+        }
+
+
+        footer > p {
+            position: relative;
+            z-index: 1;
+
+            color:
+                rgba(255, 255, 255, 0.62);
+
+            font-size: 0.84rem;
+        }
+
+
+        .admin-link {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            color:
+                rgba(255, 255, 255, 0.18);
+
+            font-size: 11px;
+
+            transition: var(--transition);
+        }
+
+
+        .admin-link:hover {
+            color: var(--white);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-container {
+                padding: 0 22px;
+            }
+
+
+            .nav-links {
+                gap: 2px;
+            }
+
+
+            .nav-links a {
+                padding: 9px;
+
+                font-size: 0.82rem;
+            }
+
+
+            .grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
         }
 
-        loadTestimonials();
+
+        @media (max-width: 768px) {
+
+            .nav-container {
+                min-height: 68px;
+
+                padding: 0 18px;
+            }
+
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .nav-links {
+                position: absolute;
+
+                top:
+                    calc(100% + 1px);
+
+                right: 12px;
+                left: 12px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 3px;
+
+                padding: 10px;
+
+                background:
+                    rgba(255, 255, 255, 0.97);
+
+                backdrop-filter: blur(15px);
+
+                border:
+                    1px solid rgba(10, 37, 64, 0.07);
+
+                border-radius: 16px;
+
+                box-shadow:
+                    0 20px 50px
+                    rgba(10, 37, 64, 0.12);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+
+            .nav-links a {
+                padding:
+                    12px 15px;
+
+                text-align: right;
+            }
+
+
+            .nav-links a::after {
+                display: none;
+            }
+
+
+            .page-header {
+                padding:
+                    55px 20px 60px;
+            }
+
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+
+            .container {
+                padding:
+                    45px 18px 65px;
+            }
+
+
+            .grid {
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+            }
+
+
+            .testimonial-card {
+                min-height: 250px;
+
+                padding: 23px;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+
+            .page-header p {
+                font-size: 0.88rem;
+            }
+
+
+            .review-text {
+                font-size: 0.92rem;
+            }
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                عبدالمنعم قاقا
+            </a>
+
+
+            <i
+                class="fas fa-bars menu-toggle"
+                id="mobile-menu"
+                aria-label="فتح القائمة">
+            </i>
+
+
+            <nav class="nav-links" id="nav-links">
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="services.html">
+                    الخدمات
+                </a>
+
+                <a href="skills.html">
+                    المهارات والأدوات
+                </a>
+
+                <a href="projects.html">
+                    المشاريع
+                </a>
+
+                <a href="testimonials.html">
+                    آراء العملاء
+                </a>
+
+                <a href="contact.html">
+                    التواصل
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ===================================================== -->
+
+    <section class="page-header">
+
+        <h1>
+            آراء العملاء
+        </h1>
+
+        <p>
+            شهادات شُركاء النجاح والانطباعات حول الحملات والاستراتيجيات المنفذة
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTENT
+    ===================================================== -->
+
+    <main class="container">
+
+        <div
+            id="testimonialsContainer"
+            class="grid">
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="social-links">
+
+            <a
+                href="https://wa.me/201157865809"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp">
+
+                <i class="fab fa-whatsapp"></i>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/abdel-moneim-kaka?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn">
+
+                <i class="fab fa-linkedin"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:Abdulmonemkaka@gmail.com"
+                aria-label="Email">
+
+                <i class="fas fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+
+        <p>
+            جميع الحقوق محفوظة &copy; 2026
+            عبدالمنعم محمد قاقا
+        </p>
+
+
+        <a
+            href="login.html"
+            class="admin-link">
+
+            Dashboard
+
+        </a>
+
+    </footer>
+
+
+    <!-- =====================================================
+         FIREBASE
+    ===================================================== -->
+
+    <script type="module">
+
+        import { db }
+            from './firebase-config.js';
+
+
+        import {
+            collection,
+            query,
+            orderBy,
+            onSnapshot
+        }
+        from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+
+        /* =====================================================
+           CACHE
+        ===================================================== */
+
+        const CACHE_KEY =
+            "portfolio_testimonials_cache_v1";
+
+
+        /* =====================================================
+           DOM
+        ===================================================== */
+
+        const container =
+            document.getElementById(
+                "testimonialsContainer"
+            );
+
+
+        const mobileMenu =
+            document.getElementById(
+                "mobile-menu"
+            );
+
+
+        const navLinks =
+            document.getElementById(
+                "nav-links"
+            );
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        mobileMenu.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.toggle(
+                    "active"
+                );
+
+
+                if (
+                    navLinks.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    mobileMenu.classList.remove(
+                        "fa-bars"
+                    );
+
+                    mobileMenu.classList.add(
+                        "fa-xmark"
+                    );
+
+                } else {
+
+                    mobileMenu.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    mobileMenu.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+                        mobileMenu.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        mobileMenu.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           ESCAPE HTML
+        ===================================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+        }
+
+
+        /* =====================================================
+           CREATE TESTIMONIAL CARD
+        ===================================================== */
+
+        function createCard(data) {
+
+            const clientName =
+                escapeHTML(
+                    data.clientName ||
+                    "عميل"
+                );
+
+
+            const review =
+                escapeHTML(
+                    data.review ||
+                    ""
+                );
+
+
+            const notes =
+                escapeHTML(
+                    data.notes ||
+                    ""
+                );
+
+
+            const defaultAvatar =
+                "https://ui-avatars.com/api/?name="
+                +
+                encodeURIComponent(
+                    data.clientName || "Client"
+                )
+                +
+                "&background=007BFF&color=fff";
+
+
+            const image =
+                data.clientImage ||
+                defaultAvatar;
+
+
+            return `
+
+                <article class="testimonial-card">
+
+                    <i
+                        class="fas fa-quote-right quote-icon"
+                        aria-hidden="true">
+                    </i>
+
+
+                    <p class="review-text">
+                        ${review}
+                    </p>
+
+
+                    <div class="client-info">
+
+                        <img
+                            class="client-img"
+                            src="${escapeHTML(image)}"
+                            alt="${clientName}"
+                            loading="lazy"
+                            onerror="this.onerror=null;this.src='${defaultAvatar}'"
+                        >
+
+
+                        <div class="client-details">
+
+                            <h4>
+                                ${clientName}
+                            </h4>
+
+
+                            ${
+                                notes
+                                ?
+                                `<p>${notes}</p>`
+                                :
+                                ""
+                            }
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            `;
+        }
+
+
+        /* =====================================================
+           RENDER
+        ===================================================== */
+
+        function renderTestimonials(items) {
+
+            if (
+                !Array.isArray(items) ||
+                items.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="state-msg">
+
+                        <i class="fa-regular fa-comment-dots"></i>
+
+                        <strong>
+                            لا توجد آراء عملاء مضافة حاليًا
+                        </strong>
+
+                        <span>
+                            ستظهر تقييمات العملاء هنا عند إضافتها من لوحة التحكم
+                        </span>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            let html = "";
+
+
+            items.forEach(item => {
+
+                const data =
+                    item.data ||
+                    item;
+
+
+                html +=
+                    createCard(data);
+
+            });
+
+
+            container.innerHTML = html;
+        }
+
+
+        /* =====================================================
+           SAVE CACHE
+        ===================================================== */
+
+        function saveCache(items) {
+
+            try {
+
+                localStorage.setItem(
+                    CACHE_KEY,
+                    JSON.stringify(items)
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "تعذر حفظ آراء العملاء في Cache:",
+                    error
+                );
+
+            }
+        }
+
+
+        /* =====================================================
+           LOAD CACHE
+        ===================================================== */
+
+        function loadCache() {
+
+            try {
+
+                const cached =
+                    localStorage.getItem(
+                        CACHE_KEY
+                    );
+
+
+                if (!cached) {
+
+                    return false;
+
+                }
+
+
+                const items =
+                    JSON.parse(cached);
+
+
+                if (
+                    Array.isArray(items)
+                ) {
+
+                    renderTestimonials(
+                        items
+                    );
+
+                    return true;
+                }
+
+            } catch (error) {
+
+                console.warn(
+                    "تعذر قراءة Cache:",
+                    error
+                );
+
+            }
+
+
+            return false;
+        }
+
+
+        /* =====================================================
+           FIREBASE REALTIME LISTENER
+        ===================================================== */
+
+        function listenToFirebase() {
+
+            const testimonialsQuery =
+                query(
+                    collection(
+                        db,
+                        "testimonials"
+                    ),
+                    orderBy(
+                        "order",
+                        "asc"
+                    )
+                );
+
+
+            onSnapshot(
+
+                testimonialsQuery,
+
+                snapshot => {
+
+                    const items = [];
+
+
+                    snapshot.forEach(
+                        doc => {
+
+                            items.push({
+
+                                id: doc.id,
+
+                                data: doc.data()
+
+                            });
+
+                        }
+                    );
+
+
+                    /*
+                       تحديث الصفحة فور وصول Firebase
+                    */
+
+                    renderTestimonials(
+                        items
+                    );
+
+
+                    /*
+                       حفظ آخر نسخة محليًا
+                    */
+
+                    saveCache(
+                        items
+                    );
+
+                },
+
+
+                error => {
+
+                    console.error(
+                        "Firebase testimonials error:",
+                        error
+                    );
+
+
+                    /*
+                       لو فيه Cache بالفعل
+                       لا نعرض للمستخدم رسالة خطأ.
+                    */
+
+                    const cached =
+                        localStorage.getItem(
+                            CACHE_KEY
+                        );
+
+
+                    if (!cached) {
+
+                        container.innerHTML = `
+
+                            <div class="state-msg">
+
+                                <i class="fa-solid fa-wifi"></i>
+
+                                <strong>
+                                    تعذر الاتصال بالبيانات
+                                </strong>
+
+                                <span>
+                                    يرجى التأكد من الاتصال بالإنترنت والمحاولة مرة أخرى.
+                                </span>
+
+                            </div>
+
+                        `;
+
+                    }
+
+                }
+
+            );
+        }
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        /*
+           1 — عرض البيانات القديمة فورًا إن وجدت.
+
+           2 — الاتصال بـ Firebase في الخلفية.
+
+           3 — تحديث البيانات عند وصولها.
+
+           4 — أي إضافة أو تعديل من Dashboard
+               يظهر تلقائيًا بدون Refresh.
+        */
+
+        loadCache();
+
+        listenToFirebase();
+
     </script>
+
 </body>
+
 </html>
