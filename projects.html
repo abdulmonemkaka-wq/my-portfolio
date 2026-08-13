@@ -3,348 +3,1879 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>المشاريع | عبدالمنعم محمد قاقا</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta name="description"
+          content="أبرز الأعمال والحملات التسويقية التي قام بتنفيذها عبدالمنعم محمد قاقا.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        :root { 
-            --white: #ffffff; 
-            --blue: #007BFF; 
-            --navy-blue: #0A2540; 
-            --light-gray: #F4F7F6; 
-            --text: #2d3748; 
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+            --white: #ffffff;
+            --blue: #007BFF;
+            --navy-blue: #0A2540;
+            --light-gray: #F4F7F6;
+            --text: #2d3748;
+            --muted: #64748b;
+            --border: rgba(10, 37, 64, 0.08);
+
+            --shadow-sm:
+                0 8px 25px rgba(10, 37, 64, 0.06);
+
+            --shadow-md:
+                0 18px 50px rgba(10, 37, 64, 0.11);
+
+            --shadow-blue:
+                0 12px 30px rgba(0, 123, 255, 0.22);
+
+            --radius: 18px;
+
+            --transition:
+                0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; text-decoration: none; }
-        body { background-color: var(--light-gray); color: var(--text); }
-        
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--navy-blue); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-weight: 600; color: var(--navy-blue); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--blue); }
-        .menu-toggle { display: none; font-size: 1.5rem; color: var(--navy-blue); cursor: pointer; }
-        
-        .page-header { text-align: center; padding: 60px 20px; background: var(--navy-blue); color: var(--white); }
-        .page-header h1 { font-size: 2.5rem; color: var(--blue); margin-bottom: 10px; font-weight: 800; }
-        .page-header p { font-size: 1.1rem; opacity: 0.9; }
 
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; min-height: 50vh; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        
-        /* تصميم كروت المشاريع (صورة وعنوان فقط) */
-        .card { 
-            background: var(--white); 
-            border-radius: 16px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
-            display: flex; 
-            flex-direction: column; 
-            cursor: pointer; 
-            border: 1px solid rgba(0,0,0,0.04);
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
         }
-        .card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 16px 32px rgba(10, 37, 64, 0.12); 
-            border-color: rgba(0, 123, 255, 0.2);
+
+        html {
+            scroll-behavior: smooth;
         }
-        .card-img-wrapper {
-            width: 100%;
-            height: 240px;
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(0, 123, 255, 0.045),
+                    transparent 30%
+                ),
+                var(--light-gray);
+
+            color: var(--text);
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+        }
+
+        body.modal-open {
             overflow: hidden;
-            position: relative;
         }
-        .card img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.5s ease;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .card:hover img {
-            transform: scale(1.05);
+
+        button {
+            font-family: inherit;
         }
-        .card-body { padding: 22px; text-align: center; background: var(--white); }
-        .card h3 { color: var(--navy-blue); font-size: 1.25rem; font-weight: 700; line-height: 1.4; }
-        
-        /* شاشة جاري التحميل */
-        .state-msg { 
-            text-align: center; 
-            font-size: 1.25rem; 
-            color: var(--navy-blue); 
-            margin-top: 60px; 
-            grid-column: 1 / -1; 
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid rgba(10, 37, 64, 0.06);
+        }
+
+
+        .nav-container {
+            max-width: 1250px;
+            min-height: 76px;
+
+            margin: auto;
+            padding: 0 28px;
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-weight: 600;
-        }
-        .state-msg i { font-size: 1.5rem; color: var(--blue); }
+            justify-content: space-between;
 
-        /* النافذة المنبثقة الشيك (Modal) */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
+            gap: 30px;
+        }
+
+
+        .logo {
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            letter-spacing: -0.5px;
+        }
+
+
+        .logo::after {
+            content: "";
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            margin-right: 6px;
+
+            background: var(--blue);
+
+            border-radius: 50%;
+
+            vertical-align: middle;
+        }
+
+
+        /* =====================================================
+           NAV
+        ===================================================== */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            position: relative;
+
+            padding: 10px 13px;
+
+            color: #536274;
+
+            font-size: 0.9rem;
+            font-weight: 600;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            right: 13px;
+            left: 13px;
+            bottom: 5px;
+
+            height: 2px;
+
+            background: var(--blue);
+
+            transform: scaleX(0);
+
+            transition: var(--transition);
+        }
+
+
+        .nav-links a:hover {
+            color: var(--navy-blue);
+
+            background:
+                rgba(0, 123, 255, 0.045);
+        }
+
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        .nav-links a[href="projects.html"] {
+            color: var(--blue);
+
+            background:
+                rgba(0, 123, 255, 0.06);
+        }
+
+
+        .nav-links a[href="projects.html"]::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .menu-toggle {
+            display: none;
+
+            color: var(--navy-blue);
+
+            font-size: 1.35rem;
+
+            cursor: pointer;
+
+            padding: 9px;
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .menu-toggle:hover {
+            color: var(--blue);
+
+            background: var(--light-gray);
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                75px 20px 80px;
+
+            text-align: center;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--navy-blue),
+                    #0d3153
+                );
+        }
+
+
+        .page-header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            top: -220px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.13);
+        }
+
+
+        .page-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 270px;
+            height: 270px;
+
+            bottom: -190px;
+            left: -90px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+
+            color: var(--white);
+
+            font-size:
+                clamp(2.1rem, 5vw, 3.2rem);
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-header h1::after {
+            content: "";
+
+            display: block;
+
+            width: 45px;
+            height: 3px;
+
+            margin: 12px auto 15px;
+
+            background: var(--blue);
+
+            border-radius: 20px;
+        }
+
+
+        .page-header p {
+            position: relative;
+            z-index: 1;
+
+            color:
+                rgba(255, 255, 255, 0.72);
+
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .container {
+            max-width: 1250px;
+
+            margin: 0 auto;
+
+            padding:
+                60px 28px 90px;
+
+            min-height: 50vh;
+        }
+
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+
+        /* =====================================================
+           PROJECT CARD
+        ===================================================== */
+
+        .card {
+            position: relative;
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-sm);
+
+            cursor: pointer;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+        }
+
+
+        .card::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
             left: 0;
+            bottom: 0;
+
+            height: 3px;
+
+            background: var(--blue);
+
+            transform: scaleX(0);
+
+            transform-origin: center;
+
+            transition:
+                transform var(--transition);
+        }
+
+
+        .card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(0, 123, 255, 0.16);
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        .card:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* =====================================================
+           PROJECT IMAGE
+        ===================================================== */
+
+        .card-img-wrapper {
+            position: relative;
+
+            width: 100%;
+            height: 245px;
+
+            overflow: hidden;
+
+            background:
+                #e9eef3;
+        }
+
+
+        .card-img-wrapper::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(10, 37, 64, 0.15),
+                    transparent 45%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .card img {
             width: 100%;
             height: 100%;
-            background: rgba(10, 25, 47, 0.75);
+
+            display: block;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s
+                cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+
+        .card:hover img {
+            transform: scale(1.055);
+        }
+
+
+        /* =====================================================
+           CARD BODY
+        ===================================================== */
+
+        .card-body {
+            padding:
+                20px 22px 23px;
+
+            background: var(--white);
+        }
+
+
+        .card h3 {
+            color: var(--navy-blue);
+
+            font-size: 1.12rem;
+
+            font-weight: 800;
+
+            line-height: 1.55;
+        }
+
+
+        .card-body::after {
+            content:
+                "اضغط لعرض التفاصيل";
+
+            display: block;
+
+            margin-top: 7px;
+
+            color:
+                var(--muted);
+
+            font-size: 0.75rem;
+
+            opacity: 0;
+
+            transform:
+                translateY(4px);
+
+            transition:
+                opacity var(--transition),
+                transform var(--transition);
+        }
+
+
+        .card:hover .card-body::after {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           EMPTY / ERROR
+        ===================================================== */
+
+        .state-msg {
+            grid-column: 1 / -1;
+
+            min-height: 200px;
+
             display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        .state-msg i {
+            color: var(--blue);
+
+            font-size: 1.8rem;
+
+            margin-bottom: 5px;
+        }
+
+
+        .state-msg strong {
+            color: var(--navy-blue);
+
+            font-size: 1rem;
+        }
+
+
+        .state-msg span {
+            font-size: 0.82rem;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            display: flex;
+
             align-items: center;
             justify-content: center;
-            z-index: 2000;
+
             padding: 20px;
-            backdrop-filter: blur(8px);
+
+            background:
+                rgba(7, 24, 43, 0.76);
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+
             opacity: 0;
+
             visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+            pointer-events: none;
+
+            transition:
+                opacity var(--transition),
+                visibility var(--transition);
         }
-        .modal-overlay.active { 
-            opacity: 1; 
-            visibility: visible; 
+
+
+        .modal-overlay.active {
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
         }
-        
+
+
         .modal-card {
-            background: var(--white);
-            border-radius: 24px;
-            max-width: 680px;
-            width: 100%;
-            max-height: 88vh;
-            overflow-y: auto;
             position: relative;
-            padding: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-            transform: scale(0.92) translateY(20px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+            width: 100%;
+
+            max-width: 720px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 30px;
+
+            background: var(--white);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.4);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0, 0, 0, 0.35);
+
+            transform:
+                translateY(25px)
+                scale(0.96);
+
+            transition:
+                transform 0.35s
+                cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+
         .modal-overlay.active .modal-card {
-            transform: scale(1) translateY(0);
+            transform:
+                translateY(0)
+                scale(1);
         }
+
+
+        /* scrollbar */
+
+        .modal-card::-webkit-scrollbar {
+            width: 7px;
+        }
+
+
+        .modal-card::-webkit-scrollbar-thumb {
+            background:
+                rgba(0, 123, 255, 0.25);
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           MODAL CLOSE
+        ===================================================== */
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.2rem;
-            color: #4a5568;
-            background: #edf2f7;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+
+            top: 17px;
+            left: 17px;
+
+            z-index: 5;
+
+            width: 42px;
+            height: 42px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
+            border: none;
+
+            border-radius: 50%;
+
+            color: #475569;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            box-shadow:
+                0 5px 18px rgba(0, 0, 0, 0.10);
+
             cursor: pointer;
-            transition: all 0.2s ease;
-            z-index: 10;
+
+            transition: var(--transition);
         }
-        .modal-close:hover { 
-            background: #e2e8f0; 
-            color: var(--navy-blue);
-            transform: rotate(90deg);
+
+
+        .modal-close:hover {
+            color: var(--white);
+
+            background: var(--blue);
+
+            transform:
+                rotate(90deg);
         }
+
+
+        /* =====================================================
+           MODAL IMAGE
+        ===================================================== */
 
         .modal-img-wrapper {
             width: 100%;
-            border-radius: 16px;
+
+            margin-bottom: 25px;
+
             overflow: hidden;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            background: #e2e8f0;
+
+            border-radius: 17px;
+
+            background:
+                #edf2f7;
+
+            box-shadow:
+                0 10px 25px
+                rgba(10, 37, 64, 0.08);
         }
+
+
         .modal-img {
             width: 100%;
-            max-height: 340px;
-            object-fit: cover;
+
+            max-height: 360px;
+
             display: block;
+
+            object-fit: cover;
         }
 
-        .modal-body h2 { 
-            color: var(--navy-blue); 
-            margin-bottom: 14px; 
-            font-size: 1.75rem; 
-            font-weight: 800; 
-            line-height: 1.3;
-        }
-        .modal-body p { 
-            color: var(--text); 
-            font-size: 1.05rem; 
-            line-height: 1.8; 
-            margin-bottom: 28px; 
-            white-space: pre-wrap; 
+
+        /* =====================================================
+           MODAL BODY
+        ===================================================== */
+
+        .modal-body {
+            padding: 0 3px;
         }
 
-        .btn-link { 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #007BFF, #0056b3); 
-            color: var(--white); 
-            padding: 12px 28px; 
-            border-radius: 12px; 
-            font-weight: 700; 
+
+        .modal-body h2 {
+            color: var(--navy-blue);
+
+            font-size:
+                clamp(1.45rem, 4vw, 1.9rem);
+
+            font-weight: 800;
+
+            line-height: 1.4;
+
+            margin-bottom: 13px;
+        }
+
+
+        .modal-body p {
+            color: var(--text);
+
             font-size: 1rem;
-            box-shadow: 0 4px 14px rgba(0, 123, 255, 0.35);
-            transition: all 0.3s ease; 
-        }
-        .btn-link:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
-            background: linear-gradient(135deg, #0056b3, #0A2540); 
+
+            line-height: 1.9;
+
+            white-space: pre-wrap;
+
+            margin-bottom: 25px;
         }
 
-        footer { background: var(--navy-blue); color: var(--white); padding: 40px 20px; text-align: center; margin-top: 50px; }
-        
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 20px; }
-            .nav-links.active { display: flex; }
-            .modal-card { padding: 22px; border-radius: 20px; }
-            .modal-img { max-height: 220px; }
+
+        /* =====================================================
+           PROJECT BUTTON
+        ===================================================== */
+
+        .btn-link {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding:
+                12px 25px;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    #0056b3
+                );
+
+            border-radius: 12px;
+
+            font-size: 0.95rem;
+
+            font-weight: 700;
+
+            box-shadow:
+                var(--shadow-blue);
+
+            transition: var(--transition);
         }
+
+
+        .btn-link:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0056b3,
+                    var(--navy-blue)
+                );
+
+            box-shadow:
+                0 15px 30px
+                rgba(0, 123, 255, 0.28);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--navy-blue);
+
+            color: var(--white);
+
+            padding:
+                45px 20px 25px;
+
+            text-align: center;
+
+            margin-top: 20px;
+        }
+
+
+        footer::before {
+            content: "";
+
+            position: absolute;
+
+            width: 280px;
+            height: 280px;
+
+            top: -190px;
+            right: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 123, 255, 0.12);
+        }
+
+
+        footer p {
+            position: relative;
+            z-index: 1;
+
+            color:
+                rgba(255, 255, 255, 0.65);
+
+            font-size: 0.84rem;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-container {
+                padding: 0 22px;
+            }
+
+
+            .nav-links {
+                gap: 2px;
+            }
+
+
+            .nav-links a {
+                padding: 9px;
+
+                font-size: 0.82rem;
+            }
+
+
+            .grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .nav-container {
+                min-height: 68px;
+
+                padding: 0 18px;
+            }
+
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .nav-links {
+                position: absolute;
+
+                top:
+                    calc(100% + 1px);
+
+                right: 12px;
+                left: 12px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 3px;
+
+                padding: 10px;
+
+                background:
+                    rgba(255, 255, 255, 0.97);
+
+                backdrop-filter:
+                    blur(15px);
+
+                border:
+                    1px solid rgba(10, 37, 64, 0.07);
+
+                border-radius: 16px;
+
+                box-shadow:
+                    0 20px 50px
+                    rgba(10, 37, 64, 0.12);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+
+            .nav-links a {
+                padding:
+                    12px 15px;
+
+                text-align: right;
+            }
+
+
+            .nav-links a::after {
+                display: none;
+            }
+
+
+            .page-header {
+                padding:
+                    55px 20px 60px;
+            }
+
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+
+            .page-header p {
+                font-size: 0.9rem;
+            }
+
+
+            .container {
+                padding:
+                    45px 18px 65px;
+            }
+
+
+            .grid {
+                grid-template-columns: 1fr;
+
+                gap: 17px;
+            }
+
+
+            .card-img-wrapper {
+                height: 220px;
+            }
+
+
+            .modal-card {
+                padding: 21px;
+
+                border-radius: 20px;
+
+                max-height: 92vh;
+            }
+
+
+            .modal-img {
+                max-height: 235px;
+            }
+
+
+            .modal-close {
+                top: 12px;
+                left: 12px;
+
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+
+            .card-img-wrapper {
+                height: 205px;
+            }
+
+
+            .card-body {
+                padding:
+                    17px 18px 19px;
+            }
+
+
+            .modal-body p {
+                font-size: 0.92rem;
+
+                line-height: 1.8;
+            }
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                transition: none !important;
+
+                animation: none !important;
+
+                scroll-behavior: auto !important;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
     <header>
+
         <div class="nav-container">
-            <a href="index.html" class="logo">عبدالمنعم قاقا</a>
-            <i class="fas fa-bars menu-toggle" id="mobile-menu"></i>
+
+            <a href="index.html" class="logo">
+                عبدالمنعم قاقا
+            </a>
+
+
+            <i
+                class="fas fa-bars menu-toggle"
+                id="mobile-menu"
+                aria-label="فتح القائمة">
+            </i>
+
+
             <nav class="nav-links" id="nav-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="services.html">الخدمات</a>
-                <a href="skills.html">المهارات والأدوات</a>
-                <a href="projects.html">المشاريع</a>
-                <a href="testimonials.html">آراء العملاء</a>
-                <a href="contact.html">التواصل</a>
+
+                <a href="index.html">
+                    الرئيسية
+                </a>
+
+                <a href="services.html">
+                    الخدمات
+                </a>
+
+                <a href="skills.html">
+                    المهارات والأدوات
+                </a>
+
+                <a href="projects.html">
+                    المشاريع
+                </a>
+
+                <a href="testimonials.html">
+                    آراء العملاء
+                </a>
+
+                <a href="contact.html">
+                    التواصل
+                </a>
+
             </nav>
+
         </div>
+
     </header>
 
-    <div class="page-header">
-        <h1>المشاريع</h1>
-        <p>أبرز الأعمال والحملات التسويقية التي قمت بتنفيذها</p>
-    </div>
+
+    <!-- =====================================================
+         PAGE HEADER
+    ===================================================== -->
+
+    <section class="page-header">
+
+        <h1>
+            المشاريع
+        </h1>
+
+        <p>
+            أبرز الأعمال والحملات التسويقية التي قمت بتنفيذها
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS
+    ===================================================== -->
 
     <main class="container">
-        <!-- شاشة جاري التحميل -->
-        <div id="content" class="grid">
-            <div class="state-msg"><i class="fas fa-spinner fa-spin"></i> جاري تحميل المحتوى...</div>
+
+        <div
+            id="content"
+            class="grid">
         </div>
+
     </main>
 
-    <!-- النافذة المنبثقة (Modal) -->
-    <div class="modal-overlay" id="project-modal">
-        <div class="modal-card">
-            <button class="modal-close" id="modal-close" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+
+    <!-- =====================================================
+         MODAL
+    ===================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="project-modal"
+        aria-hidden="true">
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title">
+
+            <button
+                class="modal-close"
+                id="modal-close"
+                aria-label="إغلاق">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+
             <div class="modal-img-wrapper">
-                <img id="modal-img" src="" alt="" class="modal-img">
+
+                <img
+                    id="modal-img"
+                    src=""
+                    alt=""
+                    class="modal-img">
+
             </div>
+
+
             <div class="modal-body">
+
                 <h2 id="modal-title"></h2>
+
                 <p id="modal-desc"></p>
-                <a id="modal-link" href="#" class="btn-link" target="_blank" rel="noopener noreferrer" style="display: none;">
-                    <span>مشاهدة المشروع</span>
+
+
+                <a
+                    id="modal-link"
+                    href="#"
+                    class="btn-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="display:none;">
+
+                    <span>
+                        مشاهدة المشروع
+                    </span>
+
                     <i class="fas fa-external-link-alt"></i>
+
                 </a>
+
             </div>
+
         </div>
+
     </div>
 
-    <footer><p>جميع الحقوق محفوظة &copy; 2026 عبدالمنعم محمد قاقا</p></footer>
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <p>
+            جميع الحقوق محفوظة &copy; 2026
+            عبدالمنعم محمد قاقا
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         FIREBASE
+    ===================================================== -->
 
     <script type="module">
-        import { db } from './firebase-config.js';
-        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        document.getElementById('mobile-menu').addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('active');
+        import { db }
+            from './firebase-config.js';
+
+
+        import {
+            collection,
+            query,
+            orderBy,
+            onSnapshot
+        }
+        from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+
+        /* =====================================================
+           CACHE
+        ===================================================== */
+
+        const CACHE_KEY =
+            "portfolio_projects_cache_v2";
+
+
+        /* =====================================================
+           DOM
+        ===================================================== */
+
+        const container =
+            document.getElementById("content");
+
+
+        const mobileMenu =
+            document.getElementById("mobile-menu");
+
+
+        const navLinks =
+            document.getElementById("nav-links");
+
+
+        const modal =
+            document.getElementById("project-modal");
+
+
+        const modalClose =
+            document.getElementById("modal-close");
+
+
+        const modalImg =
+            document.getElementById("modal-img");
+
+
+        const modalTitle =
+            document.getElementById("modal-title");
+
+
+        const modalDesc =
+            document.getElementById("modal-desc");
+
+
+        const modalLink =
+            document.getElementById("modal-link");
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        mobileMenu.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+
+            mobileMenu.classList.toggle("fa-bars");
+
+            mobileMenu.classList.toggle("fa-xmark");
+
         });
 
-        // عناصر النافذة المنبثقة
-        const modal = document.getElementById('project-modal');
-        const modalClose = document.getElementById('modal-close');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalLink = document.getElementById('modal-link');
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("active");
+
+                    mobileMenu.classList.remove("fa-xmark");
+
+                    mobileMenu.classList.add("fa-bars");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           ESCAPE HTML
+        ===================================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+                return "";
+            }
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+        /* =====================================================
+           OPEN MODAL
+        ===================================================== */
 
         function openModal(data) {
-            modalImg.src = data.image || '';
-            modalImg.alt = data.name || '';
-            modalTitle.textContent = data.name || '';
-            modalDesc.textContent = data.description || '';
+
+            modalImg.src =
+                data.image || "";
+
+            modalImg.alt =
+                data.name || "المشروع";
+
+
+            modalTitle.textContent =
+                data.name || "";
+
+
+            modalDesc.textContent =
+                data.description || "";
+
 
             if (data.url) {
-                modalLink.href = data.url;
-                modalLink.style.display = 'inline-flex';
+
+                modalLink.href =
+                    data.url;
+
+                modalLink.style.display =
+                    "inline-flex";
+
             } else {
-                modalLink.style.display = 'none';
+
+                modalLink.style.display =
+                    "none";
+
+                modalLink.removeAttribute("href");
+
             }
 
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+
+            modal.classList.add("active");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
         }
+
+
+        /* =====================================================
+           CLOSE MODAL
+        ===================================================== */
 
         function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+
+            modal.classList.remove("active");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
         }
 
-        modalClose.addEventListener('click', closeModal);
-        
-        // إغلاق النافذة عند الضغط خارج الكارت أو زر Escape
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-        });
 
-        async function loadProjects() {
-            const container = document.getElementById('content');
-            try {
-                const q = query(collection(db, "projects"), orderBy("order", "asc"));
-                const querySnapshot = await getDocs(q);
-                
-                if (querySnapshot.empty) {
-                    container.innerHTML = '<div class="state-msg">لا توجد مشاريع مضافة حاليًا.</div>';
-                    container.classList.remove('grid');
-                    return;
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    closeModal();
+
                 }
 
-                container.innerHTML = ''; // استبدال حالة التحميل بالكروت فور وصول البيانات
-
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    
-                    // إنشاء كارت ينطوي على صورة وعنوان فقط
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <div class="card-img-wrapper">
-                            <img src="${data.image}" alt="${data.name}">
-                        </div>
-                        <div class="card-body">
-                            <h3>${data.name}</h3>
-                        </div>
-                    `;
-
-                    // فتح النافذة المنبثقة بكامل التفاصيل عند النقر
-                    card.addEventListener('click', () => openModal(data));
-                    container.appendChild(card);
-                });
-            } catch (error) {
-                container.innerHTML = '<div class="state-msg">حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.</div>';
-                container.classList.remove('grid');
             }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape" &&
+                    modal.classList.contains("active")
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           CREATE PROJECT CARD
+        ===================================================== */
+
+        function createProjectCard(data) {
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "card";
+
+
+            const image =
+                escapeHTML(
+                    data.image || ""
+                );
+
+
+            const name =
+                escapeHTML(
+                    data.name ||
+                    "مشروع"
+                );
+
+
+            card.innerHTML = `
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="${image}"
+                        alt="${name}"
+                        loading="lazy"
+                        decoding="async">
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <h3>
+                        ${name}
+                    </h3>
+
+                </div>
+
+            `;
+
+
+            card.addEventListener(
+                "click",
+                () => openModal(data)
+            );
+
+
+            return card;
+
         }
 
-        loadProjects();
+
+        /* =====================================================
+           RENDER PROJECTS
+        ===================================================== */
+
+        function renderProjects(items) {
+
+            container.innerHTML = "";
+
+            container.classList.add("grid");
+
+
+            if (
+                !Array.isArray(items) ||
+                items.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="state-msg">
+
+                        <i class="fa-solid fa-folder-open"></i>
+
+                        <strong>
+                            لا توجد مشاريع مضافة حاليًا
+                        </strong>
+
+                        <span>
+                            ستظهر المشاريع هنا عند إضافتها من لوحة التحكم.
+                        </span>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            const fragment =
+                document.createDocumentFragment();
+
+
+            items.forEach(item => {
+
+                const data =
+                    item.data || item;
+
+
+                fragment.appendChild(
+                    createProjectCard(data)
+                );
+
+            });
+
+
+            container.appendChild(
+                fragment
+            );
+
+        }
+
+
+        /* =====================================================
+           SAVE CACHE
+        ===================================================== */
+
+        function saveCache(items) {
+
+            try {
+
+                localStorage.setItem(
+                    CACHE_KEY,
+                    JSON.stringify(items)
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "تعذر حفظ المشاريع في Cache:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LOAD CACHE
+        ===================================================== */
+
+        function loadCache() {
+
+            try {
+
+                const cached =
+                    localStorage.getItem(
+                        CACHE_KEY
+                    );
+
+
+                if (!cached) {
+
+                    return false;
+
+                }
+
+
+                const items =
+                    JSON.parse(cached);
+
+
+                if (
+                    Array.isArray(items)
+                ) {
+
+                    renderProjects(items);
+
+                    return true;
+
+                }
+
+            } catch (error) {
+
+                console.warn(
+                    "تعذر قراءة Cache:",
+                    error
+                );
+
+            }
+
+
+            return false;
+
+        }
+
+
+        /* =====================================================
+           FIREBASE REALTIME
+        ===================================================== */
+
+        function listenToProjects() {
+
+            const projectsQuery =
+                query(
+                    collection(
+                        db,
+                        "projects"
+                    ),
+                    orderBy(
+                        "order",
+                        "asc"
+                    )
+                );
+
+
+            onSnapshot(
+
+                projectsQuery,
+
+                snapshot => {
+
+                    const items = [];
+
+
+                    snapshot.forEach(
+                        doc => {
+
+                            items.push({
+
+                                id: doc.id,
+
+                                data: doc.data()
+
+                            });
+
+                        }
+                    );
+
+
+                    /*
+                       تحديث الصفحة فور وصول
+                       أحدث نسخة من Firebase
+                    */
+
+                    renderProjects(items);
+
+
+                    /*
+                       حفظ النسخة الجديدة
+                       لاستخدامها في الزيارة القادمة
+                    */
+
+                    saveCache(items);
+
+                },
+
+
+                error => {
+
+                    console.error(
+                        "Firebase projects error:",
+                        error
+                    );
+
+
+                    /*
+                       لو عندنا Cache
+                       لا نغير المحتوى الموجود
+                       ولا نظهر Error للمستخدم.
+                    */
+
+                    const cached =
+                        localStorage.getItem(
+                            CACHE_KEY
+                        );
+
+
+                    if (!cached) {
+
+                        container.innerHTML = `
+
+                            <div class="state-msg">
+
+                                <i class="fa-solid fa-wifi"></i>
+
+                                <strong>
+                                    تعذر الاتصال بالبيانات
+                                </strong>
+
+                                <span>
+                                    تأكد من اتصال الإنترنت وحاول مرة أخرى.
+                                </span>
+
+                            </div>
+
+                        `;
+
+                    }
+
+                }
+
+            );
+
+        }
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        /*
+           1 — عرض آخر نسخة محفوظة فورًا
+           
+           2 — الاتصال بـ Firebase في الخلفية
+           
+           3 — استقبال أحدث البيانات تلقائيًا
+           
+           4 — تحديث الصفحة وحفظ النسخة الجديدة
+        */
+
+        loadCache();
+
+        listenToProjects();
+
     </script>
+
 </body>
 </html>
-
